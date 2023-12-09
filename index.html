@@ -1,1 +1,386 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/all.css"/>
+<link rel="stylesheet" href="css/academicons.min.css"/>
+<title>Siddarth Srinivasan</title>
+<style>
+    body { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
+    
+    .main { display: flex; max-width: 1200px; }
+    .sidebar { 
+        width: 250px; 
+        background-color: #5e91e1; 
+        padding: 20px;
+        min-height: 95vh; 
+        border-radius: 30px; 
+        text-align: center; 
+        color: white; 
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .sidebar img { max-width: 80%; height: auto; }
+    .sidebar p { margin-top: 12px; margin-bottom: -10px; }   
+    .content { text-align: justify; word-wrap: break-word; padding: 60px; max-width: 800px; }
+    .social-icons { 
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin: auto;
+        width: 60%;
+        padding: 30px;
+    }
+    .intro {
+        line-height: 1.6;
+    }
+    h1 { border-bottom: 3px solid #5e91e1; border-radius: 0px; display: inline-block; padding: 0 0px 5px 0px; }
+    h2 { border-bottom: 3px solid #5e91e1; border-radius: 2px; display: inline-block; padding: 0 0px 5px 0px; }
+    .social-icons a { text-decoration: none; color: white }
+    .publications-container { margin-top: 20px; }
+    .publications-header, .publication-entry { display: flex; align-items: center; }
+    .year, .title, .authors, .venue { padding: 10px; }
+    .year { flex: 0 0 50px; } 
+    .title { flex: 4; display: flex; flex-direction: column; }
+    .title-header { flex: 4; padding: 10px; }
+    .publication-actions { margin-top: 5px }
+    .authors { flex: 2; }
+    .venue { flex: 2; }
+    .publications-header { font-weight: bold; background-color: #5e91e1; color: white}
+    .publication-entry { background-color: #ffffff; display: flex; align-items: center; }
+    .publication-entry:nth-child(even) { background-color: #f9f9f9; }
+    .toggle-abstract { color: #0056b3; cursor: pointer; margin-left: 10px; }
+    .toggle-abstract:hover { text-decoration: underline; }
+    .pdf-link { margin-left: 10px; color: #0056b3; text-decoration: none; }
+    .pdf-link:hover { text-decoration: underline; }
+    .abstract {
+        background-color: #e9ecef;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+        padding: 8px 20px;
+        font-size: smaller;
+    }
+    .abstract.open { max-height: 800px; opacity: 1; }
+    .emailContainer { cursor: pointer; }
+    .email {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+        margin-top: 10px;
+    }
+    .email.open { max-height: 400px; opacity: 1; }
+    .arrow { cursor: pointer; }
+    .banner { height: 200px; overflow: hidden; }
+    .banner img { width: 100%; height: 100%; object-fit: cover; }
+    .publication-container {
+    display: flex;
+    justify-content: flex-start;
+}
+</style>
+<script>
+    // Function to toggle the abstract visibility
+    function toggleAbstract(id) {
+        var abstract = document.getElementById(id);
+        abstract.classList.toggle('open');
+    }
+
+    function toggleEmail(id) {
+        var email = document.getElementById(id);
+        email.classList.toggle('open');
+    }
+
+    // Initialization function to set up initial states
+    function initAbstracts() {
+        // Find all abstracts and set their initial display to 'none'
+        var abstracts = document.querySelectorAll('.abstract');
+        abstracts.forEach(function(abst) {
+            abst.classList.add('abstract');
+        });
+    }
+
+    // Initialization function to set up initial states for emails
+    function initEmails() {
+        // Find all emails and set their initial display to 'none'
+        var emails = document.querySelectorAll('.email');
+        emails.forEach(function(email) {
+            email.classList.add('email');
+        });
+    }
+
+    // Call the initialization functions when the window loads
+    window.onload = function() {
+        initAbstracts();
+        initEmails();
+    };    
+</script>
+
+</head>
+<body>
+
+<!-- <div class="banner">
+    <img src="IMG_7943.jpg" alt="Banner Description">
+</div> -->
+
+<div class="main">
+    <div class="sidebar">
+        <img src="grad.jpeg" style="margin-top: 90px;" alt="Profile Picture">
+        <h2>Siddarth Srinivasan</h2>
+        <p>Postdoctoral Fellow</p>
+        <p>Harvard University</p>
+        <div class="social-icons">
+            <p><a href="https://scholar.google.com/citations?user=uGkQKUIAAAAJ&hl=en&oi=sra"><i class="ai ai-google-scholar"></i> Google Scholar</a></p>
+            <p><a href="https://www.linkedin.com/in/siddarth-srinivasan/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></p>
+            <div class="emailContainer" onclick="toggleEmail('email1')">
+                <p><i class="fa fa-envelope"></i> <span id="emailText">Email</span></p>
+            </div>
+            <div class="email" id="email1">
+                <p><span>ssrinivasan at seas dot harvard dot edu __________________</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class = "intro">
+            <h1>Hello!</h1>
+            <p> I'm a Postdoctoral Fellow at Harvard University advised by Prof. Yiling Chen. My primary research interests are in machine learning, game theory, mechanism design, and public policy. Currently, I'm thinking about incentives for natural language-aided reasoning and forecasting in multi-agent settings. Some relevant  keywords that capture my interests: reasoning, forecasting, persuasion, voting, democratic deliberation,  crowdsourcing, and of course, large language models.
+            </p>
+
+            <p> Previously, I completed my Ph.D. in Computer Science at the University of Washington, where I was advised by Prof. Byron Boots. During my Ph.D., I interned at Microsoft Research Montreal, Apple, and Disney Research.I also obtained an M.S. in Mathematics from Georgia Tech and a B.S. in Physics from Harvey Mudd College. Prior to my current position, I was a post-doctoral Fellow at the Brookings Institution where I spent some time thinking about AI policy. </p>
+
+            <p>
+                Feel free to reach out if you're interested in anything you see here, or if you just want to chat about research -- I enjoy (kindly) peppering people with questions to learn more about their research!
+            </p>
+        </div>
+        <h2 class="publications-section">Research</h2>
+        <!-- Repeat the structure below for each publication entry -->
+        <div class="publications-container">
+            <div class="publications-header">
+                <div class="year">Year</div>
+                <div class="title-header">Title</div>
+                <div class="authors">Authors</div>
+                <div class="venue">Venue</div>
+            </div>
+            <!-- Repeat this block for each publication -->
+            <div class="publication-entry">
+                <div class="year">2023</div>
+                <div class="title">
+                    <div class="publication-title">Self-Resolving Prediction Markets</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('abstract1')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://arxiv.org/pdf/2306.04305.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="abstract1" class="abstract">
+                            <p>Prediction markets elicit and aggregate beliefs by paying agents based on how close their 
+                                predictions are to a verifiable future outcome. However, outcomes of many important questions
+                                are difficult to verify or unverifiable, in that the ground truth may be hard or impossible 
+                                to access. Examples include questions about causal effects where it is infeasible or unethical 
+                                to run randomized trials; crowdsourcing and content moderation tasks where it is prohibitively 
+                                expensive to verify ground truth; and questions asked over long time horizons, where the delay 
+                                until the realization of the outcome skews agents' incentives to report their true beliefs. We 
+                                present a novel and unintuitive result showing that it is possible to run an incentive compatible
+                                prediction market to elicit and efficiently aggregate information from a pool of agents without
+                                observing the outcome by paying agents the negative cross-entropy between their prediction and
+                                that of a carefully chosen reference agent. Our key insight is that a reference agent with
+                                access to more information can serve as a reasonable proxy for the ground truth. We use this
+                                insight to propose self-resolving prediction markets that terminate with some probability
+                                after every report and pay all but a few agents based on the final prediction. We show 
+                                that it is an Perfect Bayesian Equilibrium for all agents to report truthfully in our
+                                mechanism and to believe that all other agents report truthfully. Although primarily
+                                of interest for unverifiable outcomes, this design is also applicable for verifiable
+                                outcomes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors"><b>Srinivasan S.</b>, Karger E., Chen Y.</div>
+                <div class="venue">arXiv preprint</div>
+            </div>
+            <div class="publication-entry">
+                <div class="year">2022</div>
+                <div class="title">
+                    <div class="publication-title">Scalable Measurement Error Mitigation via Iterative Bayesian Unfolding</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('abstract2')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://arxiv.org/pdf/2210.12284.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="abstract2" class="abstract">
+                            <p>Measurement error mitigation (MEM) techniques are postprocessing strategies to counteract systematic read-out errors on quantum computers (QC). Currently used MEM strategies face a tradeoff: methods that scale well with the number of qubits return negative probabilities, while those that guarantee a valid probability distribution are not scalable. Here, we present a scheme that addresses both of these issues. In particular, we present a scalable implementation of iterative Bayesian unfolding, a standard mitigation technique used in high-energy physics experiments. We demonstrate our method by mitigating QC data from experimental preparation of Greenberger-Horne-Zeilinger (GHZ) states up to 127 qubits and implementation of the Bernstein-Vazirani algorithm on up to 26 qubits.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors"><b>Srinivasan S.</b>*, Pokharel B.*, Quiroz S., Boots B.</div>
+                <div class="venue">Under Review</div>
+            </div>
+            <div class="publication-entry">
+                <div class="year">2021</div>
+                <div class="title">
+                    <div class="publication-title">Towards a Trace-Preserving Tensor Network Representation of Quantum Channels</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('TPTN')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://tensorworkshop.github.io/NeurIPS2021/accepted_papers/TP_LPDOs__QTNML_2021_(4).pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="TPTN" class="abstract">
+                            <p>The problem of characterizing quantum channels arises in a number of contexts such as quantum process tomography and quantum error correction. However, direct approaches to parameterizing and optimizing the Choi matrix representation of quantum channels face a curse of dimensionality: the number of parameters scales exponentially in the number of qubits. Recently, Torlai et al.[2020] proposed using locally purified density operators (LPDOs), a tensor network representation of Choi matrices, to overcome the unfavourable scaling in parameters. While the LPDO structure allows it to satisfy a ‘complete positivity’(CP) constraint required of physically valid quantum channels, it makes no guarantees about a similarly required ‘trace preservation’(TP) constraint. In practice, the TP constraint is violated, and the learned quantum channel may even be trace-increasing, which is non-physical. In this work, we present the problem of optimizing over TP LPDOs, discuss two approaches to characterizing the TP constraints on LPDOs, and outline the next steps for developing an optimization scheme.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors"><b>Srinivasan S.</b>*, Adhikary S.*, Miller J., Pokharel B., Rabusseau G., Boots B.</div>
+                <div class="venue">Second Workshop on Quantum Tensor Networks in Machine Learning @ NeurIPS</div>
+            </div>
+
+            <div class="publication-entry">
+                <div class="year">2021</div>
+                <div class="title">
+                    <div class="publication-title">Auctions and Peer Prediction for Academic Peer Review</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('abstract3')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://arxiv.org/pdf/2109.00923.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="abstract3" class="abstract">
+                            <p>Peer reviewed publications are considered the gold standard in certifying and disseminating ideas that a research community considers valuable. However, we identify two major drawbacks of the current system: (1) the overwhelming demand for reviewers due to a large volume of submissions, and (2) the lack of incentives for reviewers to participate and expend the necessary effort to provide high-quality reviews. In this work, we adopt a mechanism-design approach to propose improvements to the peer review process, tying together the paper submission and review processes and simultaneously incentivizing high-quality submissions and reviews. In the submission stage, authors participate in a VCG auction for review slots by submitting their papers along with a bid that represents their expected value for having their paper reviewed. For the reviewing stage, we propose a novel peer prediction mechanism (H-DIPP) building on recent work in the information elicitation literature, which incentivizes participating reviewers to provide honest and effortful reviews. The revenue raised in the submission stage auction is used to pay reviewers based on the quality of their reviews in the reviewing stage.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors"><b>Srinivasan S.</b>, Morgenstern J.</div>
+                <div class="venue">arXiv preprint</div>
+            </div>
+
+            <div class="publication-entry">
+                <div class="year">2021</div>
+                <div class="title">
+                    <div class="publication-title">Learning Deep Features in Instrumental Variable Regression</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('dfiv')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://arxiv.org/pdf/2010.07154.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="dfiv" class="abstract">
+                            <p>Instrumental variable (IV) regression is a standard strategy for learning causal relationships between confounded treatment and outcome variables from observational data by utilizing an instrumental variable, which affects the outcome only through the treatment. In classical IV regression, learning proceeds in two stages: stage 1 performs linear regression from the instrument to the treatment; and stage 2 performs linear regression from the treatment to the outcome, conditioned on the instrument. We propose a novel method, deep feature instrumental variable regression (DFIV), to address the case where relations between instruments, treatments, and outcomes may be nonlinear. In this case, deep neural nets are trained to define informative nonlinear features on the instruments and treatments. We propose an alternating training regime for these features to ensure good end-to-end performance when composing stages 1 and 2, thus obtaining highly flexible feature maps in a computationally efficient manner. DFIV outperforms recent state-of-the-art methods on challenging IV benchmarks, including settings involving high dimensional image data. DFIV also exhibits competitive performance in off-policy policy evaluation for reinforcement learning, which can be understood as an IV regression task.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors">Xu L., Chen Y., <b>Srinivasan S.</b>, de Freitas N., Doucet A., Gretton A.</div>
+                <div class="venue">ICLR</div>
+            </div>
+
+            <div class="publication-entry">
+                <div class="year">2021</div>
+                <div class="title">
+                    <div class="publication-title">Quantum Tensor Networks, Stochastic Processes, and Weighted Automata</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('abstract4')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://arxiv.org/pdf/2010.10653.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="abstract4" class="abstract">
+                            <p>Modeling joint probability distributions over sequences has been studied from many perspectives. The physics community developed matrix product states, a tensor-train decomposition for probabilistic modeling, motivated by the need to tractably model many-body systems. But similar models have also been studied in the stochastic processes and weighted automata literature, with little work on how these bodies of work relate to each other. We address this gap by showing how stationary or uniform versions of popular quantum tensor network models have equivalent representations in the stochastic processes and weighted automata literature, in the limit of infinitely long sequences. We demonstrate several equivalence results between models used in these three communities:(i) uniform variants of matrix product states, Born machines and locally purified states from the quantum tensor networks literature,(ii) predictive state representations, hidden Markov models, norm-observable operator models and hidden quantum Markov models from the stochastic process literature, and (iii) stochastic weighted automata, probabilistic automata and quadratic automata from the formal languages literature. Such connections may open the door for results and methods developed in one area to be applied in another.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors">Adhikary S.*, <b>Srinivasan S.</b>*, Miller J., Rabusseau G., Boots B.</div>
+                <div class="venue">AISTATS</div>
+            </div>
+
+            <div class="publication-entry">
+                <div class="year">2020</div>
+                <div class="title">
+                    <div class="publication-title">Expressiveness and Learning of Hidden Quantum Markov Models</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('elhqmm')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://arxiv.org/pdf/1912.02098.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="elhqmm" class="abstract">
+                            <p>Extending classical probabilistic reasoning using the quantum mechanical view of probability has been of recent interest, particularly in the development of hidden quantum Markov models (HQMMs) to model stochastic processes. However, there has been little progress in characterizing the expressiveness of such models and learning them from data. We tackle these problems by showing that HQMMs are a special subclass of the general class of observable operator models (OOMs) that do not suffer from the \emph{negative probability problem} by design. We also provide a feasible retraction-based learning algorithm for HQMMs using constrained gradient descent on the Stiefel manifold of model parameters. We demonstrate that this approach is faster and scales to larger models than previous learning algorithms.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors">Adhikary S.*, <b>Srinivasan S.</b>*, Gordon G., Boots B.</div>
+                <div class="venue">AISTATS</div>
+            </div>
+            
+            <div class="publication-entry">
+                <div class="year">2018</div>
+                <div class="title">
+                    <div class="publication-title">Learning and Inference in Hilbert Space with Quantum Graphical Models</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('qgm')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://arxiv.org/pdf/1810.12369.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="qgm" class="abstract">
+                            <p>Quantum Graphical Models (QGMs) generalize classical graphical models by adopting the formalism for reasoning about uncertainty from quantum mechanics. Unlike classical graphical models, QGMs represent uncertainty with density matrices in complex Hilbert spaces. Hilbert space embeddings (HSEs) also generalize Bayesian inference in Hilbert spaces. We investigate the link between QGMs and HSEs and show that the sum rule and Bayes rule for QGMs are equivalent to the kernel sum rule in HSEs and a special case of Nadaraya-Watson kernel regression, respectively. We show that these operations can be kernelized, and use these insights to propose a Hilbert Space Embedding of Hidden Quantum Markov Models (HSE-HQMM) to model dynamics. We present experimental results showing that HSE-HQMMs are competitive with state-of-the-art models like LSTMs and PSRNNs on several datasets, while also providing a nonparametric method for maintaining a probability distribution over continuous-valued features.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors"><b>Srinivasan S.</b>, Downey C., Boots B.</div>
+                <div class="venue">NeurIPS</div>
+            </div>
+
+            <div class="publication-entry">
+                <div class="year">2018</div>
+                <div class="title">
+                    <div class="publication-title">Expressing Coherent Personality with Incremental Acquisition of Multimodal Behaviors</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('mmb')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://studios.disneyresearch.com/wp-content/uploads/2019/04/Expressing-Coherent-Personality-with-Incremental-Acquisition-of-Multimodal-Behaviors.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="mmb" class="abstract">
+                            <p>As social robots increasingly enter people's lives, coherence of personality is an important challenge for longterm human-robot interactions. We extend an architecture that acquires dialog through crowdsourcing to author both verbal and non-verbal indicators of personality. We demonstrate the efficacy of the approach through a four-day study in which teams of participants interacted with a social robot expressing one of two personalities as the host of a competitive game. Results indicate that the system is able to elicit personality-driven language behaviors from the crowd in an incremental and ongoing way and produce a coherent expression of that personality during face-to-face interactions over time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors">Mota P., Paetzel M., Fox A., Amini A., <b>Srinivasan S.</b>, Kennedy J., Lehman J.</div>
+                <div class="venue">RO-MAN</div>
+            </div>
+            
+            <div class="publication-entry">
+                <div class="year">2018</div>
+                <div class="title">
+                    <div class="publication-title">A Simple and Effective Approach to the Story Cloze Test</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('sct')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://arxiv.org/pdf/1803.05547.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="sct" class="abstract">
+                            <p>In the Story Cloze Test, a system is presented with a 4-sentence prompt to a story, and must determine which one of two potential endings is the 'right' ending to the story. Previous work has shown that ignoring the training set and training a model on the validation set can achieve high accuracy on this task due to stylistic differences between the story endings in the training set and validation and test sets. Following this approach, we present a simpler fully-neural approach to the Story Cloze Test using skip-thought embeddings of the stories in a feed-forward network that achieves close to state-of-the-art performance on this task without any feature engineering. We also find that considering just the last sentence of the prompt instead of the whole prompt yields higher accuracy with our approach.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors"><b>Srinivasan S.</b>, Arora A., Riedl M.</div>
+                <div class="venue">NAACL</div>
+            </div>
+
+            <div class="publication-entry">
+                <div class="year">2018</div>
+                <div class="title">
+                    <div class="publication-title">Learning Hidden Quantum Markov Models</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('sct')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://arxiv.org/pdf/1803.05547.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="sct" class="abstract">
+                            <p>In the Story Cloze Test, a system is presented with a 4-sentence prompt to a story, and must determine which one of two potential endings is the 'right' ending to the story. Previous work has shown that ignoring the training set and training a model on the validation set can achieve high accuracy on this task due to stylistic differences between the story endings in the training set and validation and test sets. Following this approach, we present a simpler fully-neural approach to the Story Cloze Test using skip-thought embeddings of the stories in a feed-forward network that achieves close to state-of-the-art performance on this task without any feature engineering. We also find that considering just the last sentence of the prompt instead of the whole prompt yields higher accuracy with our approach.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors"><b>Srinivasan S.</b>, Gordon G., Boots B.</div>
+                <div class="venue">AISTATS</div>
+            </div>
+
+            <div class="publication-entry">
+                <div class="year">2015</div>
+                <div class="title">
+                    <div class="publication-title">Compressed Sensing Environmental Mapping by an Autonomous Robot</div>
+                    <div class="publication-actions">
+                        <span class="toggle-abstract" onclick="toggleAbstract('rsn')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <a href="https://arxiv.org/pdf/1803.05547.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                        <div id="rsn" class="abstract">
+                            <p>This paper introduces the use of compressed sensing for autonomous robots performing environmental mapping in order to reduce data collection, storage, and transmission requirements. A prototype robot sends data collected over adaptively updated straight-line paths to a server, which reconstructs an image of the environment variable using Split-Bregman iteration. The amount of data collected is only 10% of the amount of data in the final map, yet the relative error is only 20%.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="authors">Horning M., Lin M., <b>Srinivasan S.</b>, Zou S., Haberland M., Yin K., Bertozzi A.</div>
+                <div class="venue">Second International Workshop on Robotic Sensor Networks</div>
+            </div>
+   
+            <!-- End of block -->
+        </div>
+    </div>
+</div>
+
+<!-- <div class="footer">
+    <p>&copy; 2023 Academic Portfolio</p>
+</div> -->
+
+</body>
+</html>
