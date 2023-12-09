@@ -9,36 +9,63 @@
 <title>Siddarth Srinivasan</title>
 <style>
     body { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
-    
-    .main { display: flex; max-width: 1200px; }
-    .sidebar { 
-        width: 250px; 
-        background-color: #5e91e1; 
-        padding: 20px;
-        min-height: 95vh; 
-        border-radius: 30px; 
-        text-align: center; 
-        color: white; 
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    @media (max-width: 768px) {
+        .body {
+            width: 100%;
+            height: auto; 
+        }
     }
-    .sidebar img { max-width: 80%; height: auto;border-radius: 100px; }
-    .sidebar p { margin-top: 12px; margin-bottom: -10px; }   
-    .content { text-align: justify; word-wrap: break-word; padding: 60px; max-width: 800px; }
-    .social-icons { 
+    
+    .main {
+        display: flex;
+        justify-content: center; 
+        align-items: flex-start; 
+        flex-wrap: wrap; 
+        max-width: 900px;
+        margin: auto;
+    }
+    .introduction { 
+        display: flex;
+        width: 800px; 
+        padding: 20px; 
+        text-align: flex-start; 
+        color: black; 
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        align-items: center;
+    }
+    .imageleft { 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+    }
+    .deets { 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        margin: auto;
-        width: 60%;
-        padding: 30px;
+        width: 50%;
+        padding-top: 120px;
     }
+    .imageleft img { max-width: 60%; height: auto; border-radius: 300px; }
+    .deets p { margin-top: 12px; margin-bottom: -10px; }   
+    .content { text-align: justify; word-wrap: break-word; padding: 0px; max-width: 100%; }
+    .social-icons { 
+        color: #5e91e1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+        justify-content: center;
+        width: 60%;
+        padding-top: 20px;
+    }
+    .social-icons a { text-decoration: none; color: #5e91e1; }
     .intro {
         line-height: 1.6;
     }
     h1 { border-bottom: 3px solid #5e91e1; border-radius: 0px; display: inline-block; padding: 0 0px 5px 0px; }
-    h2 { border-bottom: 3px solid #5e91e1; border-radius: 2px; display: inline-block; padding: 0 0px 5px 0px; }
-    .social-icons a { text-decoration: none; color: white }
+    h2 { border-bottom: 3px solid #5e91e1; border-radius: 0px; display: inline-block; padding: 0 0px 5px 0px; }
     .publications-container { margin-top: 20px; }
     .publications-header, .publication-entry { display: flex; align-items: center; }
     .year, .title, .authors, .venue { padding: 10px; }
@@ -73,6 +100,8 @@
         overflow: hidden;
         transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
         margin-top: 10px;
+        color: #5e91e1;
+        min-height: 60px;
     }
     .email.open { max-height: 400px; opacity: 1; }
     .arrow { cursor: pointer; }
@@ -128,19 +157,23 @@
 </div> -->
 
 <div class="main">
-    <div class="sidebar">
+    <div class="introduction">
+        <div class="imageleft">
         <img src="grad.jpeg" style="margin-top: 90px;" alt="Profile Picture">
-        <h2>Siddarth Srinivasan</h2>
-        <p>Postdoctoral Fellow</p>
-        <p>Harvard University</p>
-        <div class="social-icons">
-            <p><a href="https://scholar.google.com/citations?user=uGkQKUIAAAAJ&hl=en&oi=sra"><i class="ai ai-google-scholar"></i> Google Scholar</a></p>
-            <p><a href="https://www.linkedin.com/in/siddarth-srinivasan/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></p>
-            <div class="emailContainer" onclick="toggleEmail('email1')">
-                <p><i class="fa fa-envelope"></i> <span id="emailText">Email</span></p>
-            </div>
-            <div class="email" id="email1">
-                <p><span>ssrinivasan at seas dot harvard dot edu __________________</span></p>
+        </div>
+        <div class = "deets">
+            <h2>Siddarth Srinivasan</h2>
+            <p>Postdoctoral Fellow</p>
+            <p>Harvard University</p>
+            <div class="social-icons">
+                <p><a href="https://scholar.google.com/citations?user=uGkQKUIAAAAJ&hl=en&oi=sra"><i class="ai ai-google-scholar"></i> Google Scholar</a></p>
+                <p><a href="https://www.linkedin.com/in/siddarth-srinivasan/"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></p>
+                <div class="emailContainer" onclick="toggleEmail('email1')">
+                    <p><i class="fa fa-envelope"></i> <span id="emailText">Email</span></p>
+                </div>
+                <div class="email" id="email1">
+                    <p><span>ssrinivasan at seas dot harvard dot edu </span></p>
+                </div>
             </div>
         </div>
     </div>
@@ -222,7 +255,7 @@
                         <span class="toggle-abstract" onclick="toggleAbstract('TPTN')"><i class="fas fa-file-alt"></i> Abstract</span>
                         <a href="https://tensorworkshop.github.io/NeurIPS2021/accepted_papers/TP_LPDOs__QTNML_2021_(4).pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
                         <div id="TPTN" class="abstract">
-                            <p>The problem of characterizing quantum channels arises in a number of contexts such as quantum process tomography and quantum error correction. However, direct approaches to parameterizing and optimizing the Choi matrix representation of quantum channels face a curse of dimensionality: the number of parameters scales exponentially in the number of qubits. Recently, Torlai et al.[2020] proposed using locally purified density operators (LPDOs), a tensor network representation of Choi matrices, to overcome the unfavourable scaling in parameters. While the LPDO structure allows it to satisfy a ‘complete positivity’(CP) constraint required of physically valid quantum channels, it makes no guarantees about a similarly required ‘trace preservation’(TP) constraint. In practice, the TP constraint is violated, and the learned quantum channel may even be trace-increasing, which is non-physical. In this work, we present the problem of optimizing over TP LPDOs, discuss two approaches to characterizing the TP constraints on LPDOs, and outline the next steps for developing an optimization scheme.</p>
+                            <p>The problem of characterizing quantum channels arises in a number of contexts such as quantum process tomography and quantum error correction. However, direct approaches to parameterizing and optimizing the Choi matrix representation of quantum channels face a curse of dimensionality: the number of parameters scales exponentially in the number of qubits. Recently, Torlai et al. [2020] proposed using locally purified density operators (LPDOs), a tensor network representation of Choi matrices, to overcome the unfavourable scaling in parameters. While the LPDO structure allows it to satisfy a ‘complete positivity’ (CP) constraint required of physically valid quantum channels, it makes no guarantees about a similarly required ‘trace preservation’ (TP) constraint. In practice, the TP constraint is violated, and the learned quantum channel may even be trace-increasing, which is non-physical. In this work, we present the problem of optimizing over TP LPDOs, discuss two approaches to characterizing the TP constraints on LPDOs, and outline the next steps for developing an optimization scheme.</p>
                         </div>
                     </div>
                 </div>
@@ -270,7 +303,7 @@
                         <span class="toggle-abstract" onclick="toggleAbstract('abstract4')"><i class="fas fa-file-alt"></i> Abstract</span>
                         <a href="https://arxiv.org/pdf/2010.10653.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
                         <div id="abstract4" class="abstract">
-                            <p>Modeling joint probability distributions over sequences has been studied from many perspectives. The physics community developed matrix product states, a tensor-train decomposition for probabilistic modeling, motivated by the need to tractably model many-body systems. But similar models have also been studied in the stochastic processes and weighted automata literature, with little work on how these bodies of work relate to each other. We address this gap by showing how stationary or uniform versions of popular quantum tensor network models have equivalent representations in the stochastic processes and weighted automata literature, in the limit of infinitely long sequences. We demonstrate several equivalence results between models used in these three communities:(i) uniform variants of matrix product states, Born machines and locally purified states from the quantum tensor networks literature,(ii) predictive state representations, hidden Markov models, norm-observable operator models and hidden quantum Markov models from the stochastic process literature, and (iii) stochastic weighted automata, probabilistic automata and quadratic automata from the formal languages literature. Such connections may open the door for results and methods developed in one area to be applied in another.</p>
+                            <p>Modeling joint probability distributions over sequences has been studied from many perspectives. The physics community developed matrix product states, a tensor-train decomposition for probabilistic modeling, motivated by the need to tractably model many-body systems. But similar models have also been studied in the stochastic processes and weighted automata literature, with little work on how these bodies of work relate to each other. We address this gap by showing how stationary or uniform versions of popular quantum tensor network models have equivalent representations in the stochastic processes and weighted automata literature, in the limit of infinitely long sequences. We demonstrate several equivalence results between models used in these three communities: (i) uniform variants of matrix product states, Born machines and locally purified states from the quantum tensor networks literature, (ii) predictive state representations, hidden Markov models, norm-observable operator models and hidden quantum Markov models from the stochastic process literature, and (iii) stochastic weighted automata, probabilistic automata and quadratic automata from the formal languages literature. Such connections may open the door for results and methods developed in one area to be applied in another.</p>
                         </div>
                     </div>
                 </div>
