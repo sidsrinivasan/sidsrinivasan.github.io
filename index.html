@@ -21,7 +21,7 @@
         color: white; 
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
-    .sidebar img { max-width: 80%; height: auto; }
+    .sidebar img { max-width: 80%; height: auto;border-radius: 100px; }
     .sidebar p { margin-top: 12px; margin-bottom: -10px; }   
     .content { text-align: justify; word-wrap: break-word; padding: 60px; max-width: 800px; }
     .social-icons { 
@@ -63,6 +63,7 @@
         transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
         padding: 8px 20px;
         font-size: smaller;
+        line-height: 1.5;
     }
     .abstract.open { max-height: 800px; opacity: 1; }
     .emailContainer { cursor: pointer; }
@@ -147,7 +148,7 @@
     <div class="content">
         <div class = "intro">
             <h1>Hello!</h1>
-            <p> I'm a Postdoctoral Fellow at Harvard University advised by Prof. Yiling Chen. My primary research interests are in machine learning, game theory, mechanism design, and public policy. Currently, I'm thinking about incentives for natural language-aided reasoning and forecasting in multi-agent settings. Some relevant  keywords on topics of interest: reasoning, forecasting, persuasion, voting, democratic deliberation,  crowdsourcing, and of course, large language models.
+            <p> I'm a Postdoctoral Fellow at Harvard University advised by Prof. Yiling Chen. My primary research interests are in machine learning, game theory, mechanism design, and public policy. Currently, I'm thinking about incentives for natural language-aided reasoning and forecasting in multi-agent settings. Some relevant  keywords for topics of interest: reasoning, forecasting, persuasion, voting, democratic deliberation,  crowdsourcing, and of course, large language models.
             </p>
 
             <p> Previously, I completed my Ph.D. in Computer Science at the University of Washington, where I was advised by Prof. Byron Boots. During my Ph.D., I interned at Microsoft Research Montreal, Apple, and Disney Research. I also obtained an M.S. in Mathematics from Georgia Tech and a B.S. in Physics from Harvey Mudd College. Prior to my current position, I was a post-doctoral Fellow at the Brookings Institution where I spent some time thinking about AI policy. </p>
@@ -210,7 +211,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="authors"><b>Srinivasan S.</b>*, Pokharel B.*, Quiroz S., Boots B.</div>
+                <div class="authors"><b>Srinivasan S.</b>*, Pokharel B.*, Quiroz G., Boots B.</div>
                 <div class="venue">Under Review</div>
             </div>
             <div class="publication-entry">
@@ -346,9 +347,9 @@
                 <div class="title">
                     <div class="publication-title">Learning Hidden Quantum Markov Models</div>
                     <div class="publication-actions">
-                        <span class="toggle-abstract" onclick="toggleAbstract('sct')"><i class="fas fa-file-alt"></i> Abstract</span>
+                        <span class="toggle-abstract" onclick="toggleAbstract('hqmm')"><i class="fas fa-file-alt"></i> Abstract</span>
                         <a href="https://arxiv.org/pdf/1803.05547.pdf" target="_blank" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> PDF</a>
-                        <div id="sct" class="abstract">
+                        <div id="hqmm" class="abstract">
                             <p>In the Story Cloze Test, a system is presented with a 4-sentence prompt to a story, and must determine which one of two potential endings is the 'right' ending to the story. Previous work has shown that ignoring the training set and training a model on the validation set can achieve high accuracy on this task due to stylistic differences between the story endings in the training set and validation and test sets. Following this approach, we present a simpler fully-neural approach to the Story Cloze Test using skip-thought embeddings of the stories in a feed-forward network that achieves close to state-of-the-art performance on this task without any feature engineering. We also find that considering just the last sentence of the prompt instead of the whole prompt yields higher accuracy with our approach.</p>
                         </div>
                     </div>
